@@ -23,10 +23,9 @@ def upgrade() -> None:
         Column('name', VARCHAR(50), nullable=False),
         Column('quantity', INTEGER),
         Column('price', DECIMAL(10, 1)),
-        Column('category_id', ForeignKey('category.id')),
+        Column('category_id', INTEGER, ForeignKey('category.id'), nullable=False),
         Column('timestamp', TIMESTAMP, server_default=func.now())
     )
-
 
 
 def downgrade() -> None:
